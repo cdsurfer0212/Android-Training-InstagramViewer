@@ -1,0 +1,194 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background"
+    android:padding="5dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame_shape"
+        tools:context="com.example.instagramviewer.activity.PhotoActivity" >
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/civProfilePicture"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/image"
+            app:border="true"
+            app:border_color="@color/light_gray"
+            app:border_width="1dp"
+            app:shadow="true" />
+
+        <TextView
+            android:id="@+id/tvFullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/civProfilePicture"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/civProfilePicture"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/user_name"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tvCaption"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/photo_shape"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tvCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/civProfilePicture"
+            android:layout_below="@+id/civProfilePicture"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvRelativeTimestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvFullName"
+            android:layout_below="@+id/tvFullName"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#9197a3"
+            android:textSize="10sp" />
+
+        <!--
+        <com.example.instagramviewer.widget.CustomListView
+        android:id="@+id/clvComments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ivLike" >
+        </com.example.instagramviewer.widget.CustomListView>
+        -->
+
+        <RelativeLayout
+            android:id="@+id/rlLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivPhoto"
+            android:padding="1dp" >
+
+            <ImageView
+                android:id="@+id/ivLike"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/like" />
+
+            <TextView
+                android:id="@+id/tvLikesCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_alignTop="@+id/ivLike"
+                android:layout_toRightOf="@+id/ivLike"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#9197a3"
+                android:textSize="10sp" />
+
+            <ImageView
+                android:id="@+id/ivComment"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_alignBottom="@+id/ivLike"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/tvLikesCount"
+                android:src="@drawable/comment" />
+
+
+            <TextView
+                android:id="@+id/tvCommentsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_alignBaseline="@+id/tvLikesCount"
+                android:layout_toRightOf="@+id/ivComment"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#9197a3"
+                android:textSize="10sp" />
+        </RelativeLayout>
+        
+        <View style="@style/dark_divider"
+              android:id="@+id/likeDivider"
+              android:layout_below="@+id/rlLike"
+              android:layout_margin="5dp" />
+        
+        <RelativeLayout
+            android:id="@+id/rlComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/likeDivider"
+            android:paddingLeft="5dp" 
+            android:paddingRight="5dp" 
+            android:paddingTop="1dp" 
+            android:paddingBottom="1dp" >
+
+            <com.example.instagramviewer.widget.CustomLinearLayout
+                android:id="@+id/cllComments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e9eaed"
+                android:divider="@drawable/light_divider_shape"
+                android:orientation="vertical"
+                android:padding="3dp" 
+                android:showDividers="middle" >
+                
+            </com.example.instagramviewer.widget.CustomLinearLayout>
+
+        </RelativeLayout>
+        
+        <View style="@style/dark_divider"
+              android:id="@+id/commentDivider"
+              android:layout_below="@+id/rlComment"
+              android:layout_margin="5dp" />
+        
+        <LinearLayout
+            android:id="@+id/llMoreComments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/rlComment"
+            android:layout_marginTop="5dp"
+            android:divider="@+drawable/dark_divider_shape"
+            android:orientation="horizontal"
+            android:showDividers="beginning" >
+
+            <TextView
+                android:id="@+id/tvMoreComments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onShowCommentsDialog"
+                android:text="@string/more_comments"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/blue"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
