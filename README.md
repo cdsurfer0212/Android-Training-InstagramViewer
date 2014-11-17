@@ -1,6 +1,6 @@
-# Tip Caculator App Demo
+# Instagram Viewer App Demo
 
-Project 1
+Project 2
 
 Completed user stories:
 
